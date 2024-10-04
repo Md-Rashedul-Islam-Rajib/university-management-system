@@ -6,25 +6,36 @@ import { Link, NavLink } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion'; 
 
+// Animation variants for the mobile menu
 const mobileMenuVariants = {
   open: { opacity: 1, x: 0 },
-  closed: { opacity: 0, x: '-100%' }, 
+  closed: { opacity: 0, x: '-100%' }, // Slide out to the left when closed
 };
 
+// Animation variants for the avatar dropdown menu
 const avatarMenuVariants = {
-  open: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  closed: { opacity: 0, scale: 0, transition: { duration: 0.2 } }, 
+  open: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
+  closed: { opacity: 0, scale: 0, transition: { duration: 0.2 } }, // Scale down when closing
 };
 
 const Navbar: React.FC = () => {
+  // State to manage the mobile menu toggle
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // State to manage the avatar menu toggle
   const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
+
+  // State to force re-render and trigger animation for CustomNavLink
+  const [animationKey, setAnimationKey] = useState(0);
+
+  const handleLinkClick = () => {
+    setAnimationKey((prev) => prev + 1);
+  };
 
   return (
     <nav className="w-full bg-blue-700 text-white shadow-md fixed top-0 z-50">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         
-        {/* Nav Menu Links for Mobile */}
+        {/* Mobile Nav Menu Toggle Button */}
         <div className="md:hidden bg-blue-700 flex items-center space-x-4">
           <Button
             size="icon"
@@ -34,18 +45,20 @@ const Navbar: React.FC = () => {
             {isMenuOpen ? '✕' : '☰'}
           </Button>
 
+          {/* Mobile Nav Menu */}
           <motion.div
-          className="absolute top-16 left-0 w-full bg-blue-600 shadow-md rounded-xl md:hidden"
-          initial="closed"
-          animate={isMenuOpen ? 'open' : 'closed'}
-          variants={mobileMenuVariants}
-        >
-          <div className="flex flex-col p-4">
-            <NavLink to="/student-dashboard" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Student Dashboard</NavLink>
-            <NavLink to="/faculty-management" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Faculty Management</NavLink>
-            <NavLink to="/course-registration" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Course Registration</NavLink>
-          </div>
-        </motion.div>
+            key={isMenuOpen ? 'menu-open' : 'menu-closed'} // Use a unique key to force re-animation
+            className="absolute top-16 left-0 w-full bg-blue-600 shadow-md rounded-xl md:hidden"
+            initial="closed"
+            animate={isMenuOpen ? 'open' : 'closed'}
+            variants={mobileMenuVariants}
+          >
+            <div className="flex flex-col p-4">
+              <NavLink to="/student-dashboard" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Student Dashboard</NavLink>
+              <NavLink to="/faculty-management" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Faculty Management</NavLink>
+              <NavLink to="/course-registration" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Course Registration</NavLink>
+            </div>
+          </motion.div>
         </div>
 
         {/* Logo on Mobile */}
@@ -57,14 +70,20 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Navigation Menu */}
         <div className="hidden md:flex md:space-x-1 lg:space-x-6">
-          <CustomNavLink to="/student-dashboard">Student Dashboard</CustomNavLink>
-          <CustomNavLink to="/faculty-management">Faculty Management</CustomNavLink>
-          <CustomNavLink to="/course-registration">Course Registration</CustomNavLink>
+          <CustomNavLink to="/student-dashboard" onClick={handleLinkClick} key={animationKey}>
+            Student Dashboard
+          </CustomNavLink>
+          <CustomNavLink to="/faculty-management" onClick={handleLinkClick} key={animationKey + 1}>
+            Faculty Management
+          </CustomNavLink>
+          <CustomNavLink to="/course-registration" onClick={handleLinkClick} key={animationKey + 2}>
+            Course Registration
+          </CustomNavLink>
         </div>
 
         {/* User Avatar */}
         <div className="flex items-center space-x-4">
-          {/* Avatar Toggle Button */}
+          
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Avatar className="cursor-pointer" onClick={() => setIsAvatarMenuOpen((prev) => !prev)}>
@@ -72,16 +91,18 @@ const Navbar: React.FC = () => {
                 <AvatarFallback>U</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
-            {/* Avatar Dropdown Menu (Animated with Framer Motion) */}
+
+            {/* Avatar Dropdown Menu */}
             <motion.div
-              className="absolute right-0 top-16 mt-2 bg-white shadow-lg rounded-lg overflow-hidden"
+              key={isAvatarMenuOpen ? 'avatar-open' : 'avatar-closed'} // Unique key to force animation
+              className="absolute right-0 top-16 mt-2 bg-white rounded-lg overflow-hidden"
               initial="closed"
               animate={isAvatarMenuOpen ? 'open' : 'closed'}
               variants={avatarMenuVariants}
-            >
-              <DropdownMenuContent className="bg-white text-black">
-                <DropdownMenuItem onClick={() => setIsAvatarMenuOpen(false)}>Profile</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setIsAvatarMenuOpen(false)}>Settings</DropdownMenuItem>
+            > 
+              <DropdownMenuContent className="text-white bg-blue-700 font-semibold">
+                <DropdownMenuItem className='border-b-2' onClick={() => setIsAvatarMenuOpen(false)}>Profile</DropdownMenuItem>
+                <DropdownMenuItem className='border-b-2' onClick={() => setIsAvatarMenuOpen(false)}>Settings</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setIsAvatarMenuOpen(false)}>Logout</DropdownMenuItem>
               </DropdownMenuContent>
             </motion.div>
@@ -92,18 +113,23 @@ const Navbar: React.FC = () => {
   );
 };
 
-// Custom NavLink Component with Framer Motion for Active State
-const CustomNavLink: React.FC<{ to: string; children: React.ReactNode }> = ({ to, children }) => (
-  <NavLink to={to} className="relative px-2 py-1 text-lg font-medium hover:text-blue-500" activeClassName="text-white">
+// Custom NavLink Component with animation
+const CustomNavLink: React.FC<{ to: string; children: React.ReactNode; onClick: () => void; }> = ({ to, children, onClick }) => (
+  <NavLink
+    to={to}
+    className="relative px-2 py-1 text-lg font-medium hover:text-blue-500"
+    activeClassName="text-white"
+    onClick={onClick} 
+  >
     {({ isActive }) => (
       <div className="relative flex items-center">
-        {/* Link text */}
+        
         {children}
-        {/* Framer Motion animated border */}
+        
         {isActive && (
           <motion.div
+            key={`underline-${to}`} // Unique key to re-render on every click
             className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"
-            layoutId="underline" 
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             exit={{ opacity: 0, scaleX: 0 }}
