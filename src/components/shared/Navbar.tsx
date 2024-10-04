@@ -54,9 +54,9 @@ const Navbar: React.FC = () => {
             variants={mobileMenuVariants}
           >
             <div className="flex flex-col p-4">
-              <NavLink to="/student-dashboard" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Student Dashboard</NavLink>
-              <NavLink to="/faculty-management" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Faculty Management</NavLink>
-              <NavLink to="/course-registration" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Course Registration</NavLink>
+              <NavLink to="/student-dashboard" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Student Portal</NavLink>
+              <NavLink to="/faculty-management" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Faculty Overview</NavLink>
+              <NavLink to="/course-registration" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Enroll in Course</NavLink>
             </div>
           </motion.div>
         </div>
@@ -71,13 +71,13 @@ const Navbar: React.FC = () => {
         {/* Desktop Navigation Menu */}
         <div className="hidden md:flex md:space-x-1 lg:space-x-6">
           <CustomNavLink to="/student-dashboard" onClick={handleLinkClick} key={animationKey}>
-            Student Dashboard
+            Student Portal
           </CustomNavLink>
           <CustomNavLink to="/faculty-management" onClick={handleLinkClick} key={animationKey + 1}>
-            Faculty Management
+            Faculty Overview
           </CustomNavLink>
           <CustomNavLink to="/course-registration" onClick={handleLinkClick} key={animationKey + 2}>
-            Course Registration
+            Enroll in Course
           </CustomNavLink>
         </div>
 
