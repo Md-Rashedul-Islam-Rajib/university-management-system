@@ -117,8 +117,9 @@ const Navbar: React.FC = () => {
 const CustomNavLink: React.FC<{ to: string; children: React.ReactNode; onClick: () => void; }> = ({ to, children, onClick }) => (
   <NavLink
     to={to}
-    className="relative px-2 py-1 text-lg font-medium hover:text-blue-500"
-    activeClassName="text-white"
+    className={({ isActive }) =>
+      isActive ? "text-white relative px-2 py-1 text-lg font-medium hover:text-blue-500" : "relative px-2 py-1 text-lg font-medium hover:text-blue-500"
+    }
     onClick={onClick} 
   >
     {({ isActive }) => (

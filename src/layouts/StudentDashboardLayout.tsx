@@ -1,18 +1,20 @@
-import Sidebar from '@/components/shared/SideBar'
-import { Outlet } from 'react-router-dom'
+import Navbar from "@/components/shared/Navbar";
+import Sidebar from "@/components/shared/SideBar";
+import { Outlet } from "react-router-dom";
 
 const StudentDashboardLayout = () => {
   return (
-    <div className="flex w-screen">
-    
-    <Sidebar />
-      
-      <div className="p-6 bg-gray-100 flex-grow">
-        <Outlet /> 
-      </div>
-    
-  </div>
-  )
-}
+    <div className="flex h-screen">
+      <Navbar />
+      <div className="mt-16 h-[calc(100vh-72px)]">
+        <Sidebar />
 
-export default StudentDashboardLayout
+        <div className="flex-grow">
+          <Outlet />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default StudentDashboardLayout;
