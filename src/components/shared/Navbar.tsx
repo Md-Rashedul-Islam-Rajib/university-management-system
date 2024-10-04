@@ -2,12 +2,23 @@
 import React, { useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { Link, NavLink } from 'react-router-dom'; // Use 'next/link' if you're using Next.js
+import { Link, NavLink } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion'; // Import Framer Motion
+import { motion } from 'framer-motion'; 
+
+const mobileMenuVariants = {
+  open: { opacity: 1, x: 0 },
+  closed: { opacity: 0, x: '-100%' }, 
+};
+
+const avatarMenuVariants = {
+  open: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  closed: { opacity: 0, scale: 0, transition: { duration: 0.2 } }, 
+};
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
 
   return (
     <nav className="w-full bg-blue-700 text-white shadow-md fixed top-0 z-50">
@@ -20,18 +31,21 @@ const Navbar: React.FC = () => {
             className="block text-xl font-bold"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            ☰ {/* Mobile Menu Toggle Button */}
+            {isMenuOpen ? '✕' : '☰'}
           </Button>
 
-          {isMenuOpen && (
-            <div className="absolute top-16 left-0 w-full text-white bg-blue-600 shadow-md rounded-xl">
-              <div className="flex flex-col p-4">
-                <NavLink to="/student-dashboard" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Student Dashboard</NavLink>
-                <NavLink to="/faculty-management" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Faculty Management</NavLink>
-                <NavLink to="/course-registration" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Course Registration</NavLink>
-              </div>
-            </div>
-          )}
+          <motion.div
+          className="absolute top-16 left-0 w-full bg-blue-600 shadow-md rounded-xl md:hidden"
+          initial="closed"
+          animate={isMenuOpen ? 'open' : 'closed'}
+          variants={mobileMenuVariants}
+        >
+          <div className="flex flex-col p-4">
+            <NavLink to="/student-dashboard" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Student Dashboard</NavLink>
+            <NavLink to="/faculty-management" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Faculty Management</NavLink>
+            <NavLink to="/course-registration" className="text-lg font-medium hover:text-blue-500 border-b-2" onClick={() => setIsMenuOpen(false)}>Course Registration</NavLink>
+          </div>
+        </motion.div>
         </div>
 
         {/* Logo on Mobile */}
@@ -42,7 +56,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop Navigation Menu */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex md:space-x-1 lg:space-x-6">
           <CustomNavLink to="/student-dashboard">Student Dashboard</CustomNavLink>
           <CustomNavLink to="/faculty-management">Faculty Management</CustomNavLink>
           <CustomNavLink to="/course-registration">Course Registration</CustomNavLink>
@@ -50,19 +64,27 @@ const Navbar: React.FC = () => {
 
         {/* User Avatar */}
         <div className="flex items-center space-x-4">
+          {/* Avatar Toggle Button */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Avatar className="cursor-pointer">
-                {/* Replace the src with the actual user image */}
+              <Avatar className="cursor-pointer" onClick={() => setIsAvatarMenuOpen((prev) => !prev)}>
                 <AvatarImage src="https://github.com/shadcn.png" alt="User Image" />
                 <AvatarFallback>U</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
+            {/* Avatar Dropdown Menu (Animated with Framer Motion) */}
+            <motion.div
+              className="absolute right-0 top-16 mt-2 bg-white shadow-lg rounded-lg overflow-hidden"
+              initial="closed"
+              animate={isAvatarMenuOpen ? 'open' : 'closed'}
+              variants={avatarMenuVariants}
+            >
+              <DropdownMenuContent className="bg-white text-black">
+                <DropdownMenuItem onClick={() => setIsAvatarMenuOpen(false)}>Profile</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setIsAvatarMenuOpen(false)}>Settings</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setIsAvatarMenuOpen(false)}>Logout</DropdownMenuItem>
+              </DropdownMenuContent>
+            </motion.div>
           </DropdownMenu>
         </div>
       </div>
@@ -81,7 +103,7 @@ const CustomNavLink: React.FC<{ to: string; children: React.ReactNode }> = ({ to
         {isActive && (
           <motion.div
             className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"
-            layoutId="underline" // Shared layout id for smooth transition
+            layoutId="underline" 
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             exit={{ opacity: 0, scaleX: 0 }}
