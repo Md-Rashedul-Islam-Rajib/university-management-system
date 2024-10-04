@@ -1,5 +1,5 @@
 import Navbar from "@/components/shared/Navbar";
-import Sidebar from "@/components/shared/SideBar";
+import Sidebar from "@/components/shared/Sidebar";
 import { Outlet } from "react-router-dom";
 
 const StudentDashboardLayout = () => {
