@@ -13,6 +13,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
   },
+  {
+    path: "/student-dashboard",
+    element: <h1>Student dashboard</h1>
+
+  }
 ]);
 
 createRoot(document.getElementById('root')!).render(
