@@ -1,8 +1,8 @@
 import MainLayout from "@/layouts/MainLayout";
 import StudentDashboardLayout from "@/layouts/StudentDashboardLayout";
 import CourseRegistration from "@/pages/CourseRegistration";
+import Dashboard from "@/pages/Dashboard";
 import FacultyManagement from "@/pages/FacultyManagement";
-import StudentDashboard from "@/pages/StudentDashboard";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -22,11 +22,11 @@ const router = createBrowserRouter([
       ],
     },
     {
-      path: "/student-dashboard",
+      path: "student-dashboard",
       element: <StudentDashboardLayout />,
       children: [
-        {   path: "",
-            element: <StudentDashboard /> 
+        {   path: "dashboard",
+            element: <Dashboard /> 
         },
       ],
     },

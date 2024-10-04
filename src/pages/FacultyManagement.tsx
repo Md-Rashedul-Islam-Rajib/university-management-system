@@ -3,7 +3,7 @@
 const FacultyManagement = () => {
   return (
     <div>
-      
+      Faculty Overview
     </div>
   )
 }

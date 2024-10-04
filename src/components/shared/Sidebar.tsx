@@ -17,10 +17,10 @@ const Sidebar: React.FC = () => {
 
   // Menu items for the sidebar
   const menuItems = [
-    { name: 'Dashboard', path: '/dashboard', icon: <FiHome /> },
-    { name: 'Courses', path: '/courses', icon: <FiBook /> },
-    { name: 'Grades', path: '/grades', icon: <FiBarChart2 /> },
-    { name: 'Events', path: '/events', icon: <FiCalendar /> },
+    { name: 'Dashboard', path: 'dashboard', icon: <FiHome /> },
+    { name: 'Courses', path: 'courses', icon: <FiBook /> },
+    { name: 'Grades', path: 'grades', icon: <FiBarChart2 /> },
+    { name: 'Events', path: 'events', icon: <FiCalendar /> },
   ];
 
   return (
