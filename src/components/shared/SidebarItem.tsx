@@ -9,6 +9,7 @@ interface SidebarItemProps {
   icon: React.ReactNode;
   isOpen: boolean;
   isActive: boolean;
+  horizontal?: boolean; // New prop to handle horizontal layout
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
@@ -17,20 +18,21 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   icon,
   isOpen,
   isActive,
+  horizontal = false, // Default is vertical layout
 }) => {
   return (
-    <Link to={path}>
+    <Link to={`${path}`} className="relative">
       <motion.div
-        whileHover={{ scale: 1.05 }} 
-        className={`flex items-center p-2 rounded-md cursor-pointer ${
-          isActive ? 'bg-blue-600' : 'hover:bg-blue-700'
-        }`}
+        whileHover={{ scale: 1.05 }} // Hover effect
+        className={`flex items-center cursor-pointer p-2 rounded-md transition-all duration-200 ${
+          isActive ? 'text-gray-400 font-bold' : 'text-white'
+        } ${horizontal ? 'flex-col space-y-1' : 'flex'} ${isOpen ? 'space-x-2' : 'justify-center'}`}
       >
         {/* Icon */}
-        <span className="text-xl">{icon}</span>
+        <span className="text-xl ml-2">{icon}</span>
 
         {/* Text */}
-        {isOpen && <span className="ml-4">{name}</span>}
+        {isOpen && <span className={`${horizontal ? 'text-xs' : 'ml-2'}`}>{name}</span>}
       </motion.div>
     </Link>
   );

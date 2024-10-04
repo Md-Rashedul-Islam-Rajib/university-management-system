@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 
 const StudentDashboardLayout = () => {
   return (
-    <div className="flex h-screen">
+    <div className="h-screen">
       <Navbar />
-      <div className="mt-16 h-[calc(100vh-72px)]">
+      <div className="flex gap-1 mt-16 h-[calc(100vh-72px)]">
         <Sidebar />
 
         <div className="flex-grow">

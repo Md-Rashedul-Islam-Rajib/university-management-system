@@ -1,10 +1,12 @@
 import StudentPortalBanner from '@/components/shared/StudentPortalBanner'
-import React from 'react'
+
 
 const Dashboard = () => {
   return (
     <div>
+        <div className="mx-6">
         <StudentPortalBanner />
+        </div>
       
     </div>
   )

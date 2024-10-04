@@ -24,9 +24,24 @@ const Sidebar: React.FC = () => {
   ];
 
   return (
+    <>
+    <div className="fixed bottom-0 left-0 right-0 md:hidden text-white bg-blue-600 h-16 shadow-lg p-2 flex justify-around items-center">
+        {menuItems.map((item) => (
+          <SidebarItem
+            key={item.name}
+            isOpen={true} // Always show icon and label on mobile
+            name={item.name}
+            icon={item.icon}
+            path={item.path}
+            isActive={location.pathname === `/${item.path}`}
+            horizontal={true} // Use horizontal layout for mobile
+          />
+        ))}
+      </div>
+
     <motion.div
       animate={{ width: isOpen ? '200px' : '60px' }} // Animate the sidebar width
-      className="bg-blue-800 text-white h-[calc(100vh-72px)] shadow-lg p-4"
+      className="bg-blue-800 text-white h-[calc(100vh-72px)] shadow-lg p-4 hidden md:block"
     >
       {/* Sidebar Toggle Button */}
       <div className="flex justify-end mb-4">
@@ -49,6 +64,7 @@ const Sidebar: React.FC = () => {
         ))}
       </div>
     </motion.div>
+      </>
   );
 };
 
