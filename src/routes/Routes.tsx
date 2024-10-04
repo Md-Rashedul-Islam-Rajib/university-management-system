@@ -1,25 +1,35 @@
 import MainLayout from "@/layouts/MainLayout";
-import { createBrowserRouter } from "react-router-dom";
+import StudentDashboardLayout from "@/layouts/StudentDashboardLayout";
+import CourseRegistration from "@/pages/CourseRegistration";
+import FacultyManagement from "@/pages/FacultyManagement";
+import StudentDashboard from "@/pages/StudentDashboard";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      {
-        path: "/student-dashboard",
-        element: <h1>Student Dashboard</h1>,
-      },
-      {
-        path: "/faculty-management",
-        element: <h1>Faculty</h1>,
-      },
-      {
-        path: "/course-registration",
-        element: <h1>course</h1>,
-      },
-    ],
-  },
-]);
+    {
+      path: "/",
+      element: <MainLayout />, // General layout for pages without sidebar
+      children: [
+        {   path: "/",
+            element: <Navigate to="/student-dashboard" replace /> 
+        },
+        {   path: "/faculty-management",
+            element: <FacultyManagement /> 
+        },
+        {   path: "/course-registration",
+            element: <CourseRegistration /> 
+        },
+      ],
+    },
+    {
+      path: "/student-dashboard",
+      element: <StudentDashboardLayout />,
+      children: [
+        {   path: "",
+            element: <StudentDashboard /> 
+        },
+      ],
+    },
+  ]);
 
 export default router;

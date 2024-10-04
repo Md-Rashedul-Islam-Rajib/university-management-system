@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CourseRegistration = () => {
+const StudentDashboard = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const CourseRegistration = () => {
   )
 }
 
-export default CourseRegistration
+export default StudentDashboard
