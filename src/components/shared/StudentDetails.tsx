@@ -26,12 +26,12 @@ const StudentCard: React.FC = () => {
         <div>
           <img src={image} alt="" className="size-28 p-1 border rounded-full" />
         </div>
-        <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+        <CardTitle className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
           {name}
         </CardTitle>
         <CardDescription className="text-sm text-gray-500 dark:text-gray-400">{`ID: ${studentId}`}</CardDescription>
       </CardHeader>
-      <CardContent className="p-4">
+      <CardContent className="p-4 text-sm lg:text-base">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
             <FaCalendarAlt className="text-gray-500 dark:text-gray-400" />

@@ -1,3 +1,4 @@
+import DailyNotice from '@/components/shared/DailyNotice'
 import StudentCard from '@/components/shared/StudentDetails'
 import StudentPortalBanner from '@/components/shared/StudentPortalBanner'
 
@@ -8,8 +9,9 @@ const Dashboard = () => {
         <div className="m-6">
         <StudentPortalBanner />
         </div>
-        <div>
+        <div className='grid gap-2 md:gap-4 grid-cols-1 md:grid-cols-2 '>
           <StudentCard />
+          <DailyNotice />
         </div>
       
     </div>
