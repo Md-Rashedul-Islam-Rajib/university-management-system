@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
         {/* Logo on Mobile */}
         <div className="text-2xl font-bold flex-grow text-center md:text-left md:flex-grow-0">
           <Link to="/" className="hover:text-blue-500">
-            MyLogo
+            Capital University
           </Link>
         </div>
 

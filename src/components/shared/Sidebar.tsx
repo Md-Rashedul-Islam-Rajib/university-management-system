@@ -12,8 +12,8 @@ import {
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const Sidebar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(true); // Sidebar toggle state
-  const location = useLocation(); // Get the current location
+  const [isOpen, setIsOpen] = useState(true);
+  const location = useLocation();
 
   // Menu items for the sidebar
   const menuItems = [
@@ -40,8 +40,8 @@ const Sidebar: React.FC = () => {
       </div>
 
     <motion.div
-      animate={{ width: isOpen ? '200px' : '60px' }} // Animate the sidebar width
-      className="bg-blue-800 text-white h-[calc(100vh-72px)] shadow-lg p-4 hidden md:block"
+      animate={{ width: isOpen ? '200px' : '60px' }}
+      className="bg-blue-800 text-white h-[calc(100vh-64px)] shadow-lg p-4 hidden md:block !m-0"
     >
       {/* Sidebar Toggle Button */}
       <div className="flex justify-end mb-4">

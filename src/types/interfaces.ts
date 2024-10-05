@@ -9,16 +9,15 @@ export interface CourseFinished {
 	duration: string;
 }
 
-export interface CourseDropped {
-	courseId: string;
-	courseName: string;
-	professorName: string;
-	professorEmail: string;
-	grade?: string;
-	semester: string;
-	credits: number;
-	duration: string;
-}
+// export interface CourseDropped {
+// 	courseId: string;
+// 	courseName: string;
+// 	professorName: string;
+// 	professorEmail: string;
+// 	semester: string;
+// 	credits: number;
+// 	duration: string;
+// }
 
 export interface CourseReg {
 	courseId: string;
@@ -45,10 +44,11 @@ export interface StudentData {
 	studentEmail: string;
 	studentImage: string;
 	admissionDate: Date;
+	department: string;
 	currentSemester: string;
 	expectedGraduationDate: Date;
 	courses: CourseReg[] | CourseFinished[];
 	finishedCourses: CourseFinished[];
-	droppedCourses: CourseDropped[];
+	droppedCourses: CourseFinished[];
 	upcomingEvents: Event[];
 }
