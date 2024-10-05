@@ -4,7 +4,7 @@ import StudentPortalBanner from '@/components/shared/StudentPortalBanner'
 const Dashboard = () => {
   return (
     <div>
-        <div className="mx-6">
+        <div className="m-6">
         <StudentPortalBanner />
         </div>
       
