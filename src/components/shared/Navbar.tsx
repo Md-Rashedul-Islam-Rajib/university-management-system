@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Nav Menu */}
           <motion.div
-            key={isMenuOpen ? 'menu-open' : 'menu-closed'} // Use a unique key to force re-animation
+            key={isMenuOpen ? 'menu-open' : 'menu-closed'} 
             className="absolute top-16 left-0 w-full bg-blue-600 shadow-md rounded-xl md:hidden"
             initial="closed"
             animate={isMenuOpen ? 'open' : 'closed'}

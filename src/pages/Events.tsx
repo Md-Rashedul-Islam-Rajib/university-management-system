@@ -2,7 +2,7 @@ import StudentCard from '@/components/shared/StudentDetails'
 import StudentPortalBanner from '@/components/shared/StudentPortalBanner'
 
 
-const Dashboard = () => {
+const Events = () => {
   return (
     <div>
         <div className="m-6">
@@ -16,4 +16,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Events

@@ -25,7 +25,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <>
-    <div className="fixed bottom-0 left-0 right-0 md:hidden text-white bg-blue-600 h-16 shadow-lg p-2 flex justify-around items-center">
+    <div className="fixed bottom-0 md:hidden text-white bg-blue-600 w-screen h-16 shadow-lg p-2 flex justify-around items-center">
         {menuItems.map((item) => (
           <SidebarItem
             key={item.name}

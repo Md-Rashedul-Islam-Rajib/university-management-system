@@ -1,8 +1,11 @@
 import MainLayout from "@/layouts/MainLayout";
 import StudentDashboardLayout from "@/layouts/StudentDashboardLayout";
 import CourseRegistration from "@/pages/CourseRegistration";
+import Courses from "@/pages/Courses";
 import Dashboard from "@/pages/Dashboard";
+import Events from "@/pages/Events";
 import FacultyManagement from "@/pages/FacultyManagement";
+import Grades from "@/pages/Grades";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -28,6 +31,18 @@ const router = createBrowserRouter([
         {   path: "dashboard",
             element: <Dashboard /> 
         },
+        {
+          path: "courses",
+          element: <Courses />
+        },
+        {
+          path: "grades",
+          element: <Grades />
+        },
+        {
+          path: "events",
+          element: <Events />
+        }
       ],
     },
   ]);

@@ -29,7 +29,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         } ${horizontal ? 'flex-col space-y-1' : 'flex'} ${isOpen ? 'space-x-2' : 'justify-center'}`}
       >
         {/* Icon */}
-        <span className="text-xl ml-2">{icon}</span>
+        <span className={`text-xl ml-2 ${isActive? 'scale-125': 'scale-100'}`}>{icon}</span>
 
         {/* Text */}
         {isOpen && <span className={`${horizontal ? 'text-xs' : 'ml-2'}`}>{name}</span>}
