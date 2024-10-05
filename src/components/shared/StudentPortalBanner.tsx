@@ -5,9 +5,9 @@ import TimeAndDate from "./TimeAndDate";
 const StudentPortalBanner = () => {
   return (
     <div className="rounded-lg bg-gradient-to-r from-[#1e40af] to-[#5775d6] shadow-lg] py-10">
-      <div className="flex justify-between mx-6 md:mx-10 lg:mx-16">
+      <div className="flex justify-between mx-6 md:mx-10 lg:mx-20">
         <div className="flex flex-col justify-between text-white">
-          <div className="py-3">
+          <div>
             <TimeAndDate />
           </div>
           <div>
@@ -16,7 +16,7 @@ const StudentPortalBanner = () => {
           </div>
         </div>
         <div>
-            <img className="h-60 " src={image} alt="" />
+            <img className="h-40 " src={image} alt="" />
         </div>
       </div>
     </div>

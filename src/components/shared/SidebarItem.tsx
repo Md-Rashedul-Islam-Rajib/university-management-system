@@ -23,7 +23,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   return (
     <Link to={`${path}`} className="relative">
       <motion.div
-        whileHover={{ scale: 1.05 }} // Hover effect
+        whileHover={{ scale: 1.15 }} // Hover effect
         className={`flex items-center cursor-pointer p-2 rounded-md transition-all duration-200 ${
           isActive ? 'text-gray-400 font-bold' : 'text-white'
         } ${horizontal ? 'flex-col space-y-1' : 'flex'} ${isOpen ? 'space-x-2' : 'justify-center'}`}
