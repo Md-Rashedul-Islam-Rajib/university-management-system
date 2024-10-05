@@ -25,6 +25,7 @@ export interface CourseReg {
 	professorName: string;
 	professorEmail: string;
 	credits: number;
+	grade?: string;
 	department: string;
 	capacity: number;
 	enrolled: number;

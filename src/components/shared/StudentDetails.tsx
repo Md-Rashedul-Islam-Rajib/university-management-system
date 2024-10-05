@@ -73,7 +73,7 @@ const StudentCard: React.FC = () => {
             <BiCoinStack />
             <span>Remaining Credit(s)</span>
           </div>
-          <span className="font-medium">56</span>
+          <span className="font-medium">36</span>
         </div>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-1">
