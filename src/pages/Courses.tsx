@@ -4,7 +4,7 @@ import { studentData } from "@/data/student";
 import CourseCard from "@/components/shared/CourseCard";
 
 const Courses = () => {
-  const { courses } = studentData;
+  const { courses,droppedCourses } = studentData;
   return (
     <div>
       <div className="m-6">
@@ -24,11 +24,14 @@ const Courses = () => {
               <CourseCard key={course.courseId} course={course} />
             ))}
           </TabsContent>
-          {/* <TabsContent value="finished-courses">
-            Change your password here.
-          </TabsContent> */}
-          <TabsContent value="dropped-courses">
-            Change your password here.
+         
+          <TabsContent value="dropped-courses"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {
+              droppedCourses?.map((course)=> 
+              <CourseCard key={course.courseId} course={course} />)
+            }
           </TabsContent>
         </Tabs>
       </div>
