@@ -9,6 +9,17 @@ export interface CourseFinished {
 	duration: string;
 }
 
+export interface CourseDropped {
+	courseId: string;
+	courseName: string;
+	professorName: string;
+	professorEmail: string;
+	grade?: string;
+	semester: string;
+	credits: number;
+	duration: string;
+}
+
 export interface CourseReg {
 	courseId: string;
 	courseName: string;
@@ -38,5 +49,6 @@ export interface StudentData {
 	expectedGraduationDate: Date;
 	courses: CourseReg[] | CourseFinished[];
 	finishedCourses: CourseFinished[];
+	droppedCourses: CourseDropped[];
 	upcomingEvents: Event[];
 }
