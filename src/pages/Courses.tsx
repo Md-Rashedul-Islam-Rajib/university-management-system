@@ -18,7 +18,7 @@ const Courses = () => {
             <TabsTrigger value="dropped-courses">Dropped Courses</TabsTrigger>
           </TabsList>
           <TabsContent value="current-courses"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             {courses?.map((course) => (
               <CourseCard key={course.courseId} course={course} />

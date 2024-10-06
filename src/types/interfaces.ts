@@ -39,6 +39,15 @@ export interface Event {
 	description: string;
 }
 
+export interface Faculty {
+	facultyId: string;
+	facultyName: string;
+	designation: string;
+	subjects: string[];
+	officeHours: string;
+	contactEmail: string;
+}
+
 export interface StudentData {
 	studentName: string;
 	studentId: string;
