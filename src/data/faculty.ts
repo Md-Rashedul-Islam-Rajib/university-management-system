@@ -1,4 +1,4 @@
-
+import type { Faculty } from "../types/interfaces";
 
 export const facultyList: Faculty[] = [
 	{
