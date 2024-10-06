@@ -5,7 +5,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Link, NavLink } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion'; 
-import logo from "../../../public/logo.png"
 
 // Animation variants for the mobile menu
 const mobileMenuVariants = {
