@@ -5,7 +5,7 @@ const MainLayout = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen">
+      <div className="h-screen py-20">
       <Outlet />
       </div>
     </>
