@@ -29,7 +29,7 @@ const StudentCard: React.FC = () => {
   } = studentData;
 
   return (
-    <Card className="max-w-lg mx-auto bg-blue-700 text-white shadow-lg rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700 transition-all hover:shadow-2xl hover:-translate-y-1 flex ">
+    <Card className="max-w-lg mx-auto bg-gradient-to-r from-teal-100 to-green-300 text-black shadow-lg rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700 transition-all hover:shadow-2xl hover:-translate-y-1 flex ">
       <CardHeader className="flex flex-col items-center">
         <div className="size-28 border rounded-full grid place-items-center">
           <img src={image} alt="" className="h-24 p-1" />

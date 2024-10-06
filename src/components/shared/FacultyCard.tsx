@@ -26,7 +26,7 @@ import { Faculty } from '@/types/interfaces';
 
 const FacultyCard:React.FC<facultyProps> = ({faculty}) => {
   return (
-    <Card className="w-96 md:w-88 lg:w-96 mx-auto bg-emerald-600 text-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <Card className="w-96 md:w-88 lg:w-96 mx-auto bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <CardHeader className="flex flex-col items-center">
                   <CardTitle className="text-xl font-bold dark:text-white">{faculty.facultyName}</CardTitle>
                   <CardDescription className="text-sm text-gray-300 dark:text-gray-400">{faculty.designation}</CardDescription>

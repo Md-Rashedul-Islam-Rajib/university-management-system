@@ -10,7 +10,7 @@ const DailyNotice = () => {
   return (
     <>
    
-    <Card className="max-w-sm mx-auto bg-white shadow-lg rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <Card className="max-w-sm mx-auto bg-gradient-to-r from-yellow-300 to-yellow-500 shadow-lg rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
       <CardHeader className="flex flex-col items-center">
         <CardTitle className="md:text-lg lg:text-xl text-black dark:text-white">Daily Notice</CardTitle>
         <CardDescription className="text-sm text-gray-500 dark:text-gray-400"></CardDescription>

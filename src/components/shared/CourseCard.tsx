@@ -15,7 +15,7 @@ interface CardProps {
 
 const CourseCard:React.FC<CardProps> = ({course}) => {
   return (
-    <Card className="w-80 md:w-72 lg:w-80 mx-auto bg-emerald-600 text-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <Card className="w-80 md:w-72 lg:w-80 mx-auto bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <CardHeader className="flex flex-col items-center">
                   <CardTitle className="text-xl font-bold">{course?.courseName}</CardTitle>
                   <CardDescription className="text-sm text-white">{course?.courseId}</CardDescription>
