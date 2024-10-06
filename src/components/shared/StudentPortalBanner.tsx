@@ -10,9 +10,8 @@ const StudentPortalBanner = () => {
           <div>
             <TimeAndDate />
           </div>
-          <div>
+          <div className="font-orbitron">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold">Welcome back, John!</h1>
-            <p>Always stay updated in your student portal</p>
           </div>
         </div>
         <div>
