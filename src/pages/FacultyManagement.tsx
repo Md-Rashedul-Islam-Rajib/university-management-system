@@ -26,6 +26,7 @@ const FacultyManagement = () => {
 
   return (
     <div className="pt-24 pb-16 md:mx-4">
+      <h1 className="text-3xl font-bold mb-6 text-center">Faculty Overview </h1>
       {/* Search Input */}
       <div className="mb-6 max-w-96 mx-auto">
         <input
