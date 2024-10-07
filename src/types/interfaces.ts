@@ -48,6 +48,20 @@ export interface Faculty {
 	contactEmail: string;
 }
 
+export interface Course {
+  courseId: string;
+  courseName: string;
+  professorName: string;
+  professorEmail: string;
+  credits: number;
+  duration: string;
+  grade?: string;
+  semester?: string;
+  department?: string;
+  capacity?: number;
+  enrolled?: number;
+}
+
 export interface StudentData {
 	studentName: string;
 	studentId: string;
