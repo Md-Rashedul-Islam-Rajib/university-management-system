@@ -95,7 +95,7 @@ const CourseRegistration = () => {
         {/* Enrollment Modal */}
         <Dialog>
           <DialogTrigger>
-            <Button variant="outline">Enroll Now</Button>
+            <Button variant="default" className="bg-blue-700 text-white" >Enroll Now</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -185,7 +185,7 @@ const CourseRegistration = () => {
 
               {/* Submit Button */}
               <DialogClose asChild>
-                <Button type="submit" variant="default">
+                <Button className="pt-3 bg-blue-700 text-white" type="submit" variant="default">
                   Submit
                 </Button>
               </DialogClose>
