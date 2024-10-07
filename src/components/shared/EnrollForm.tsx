@@ -48,9 +48,7 @@ console.log(selectedCourses)
   });
 
   // Function to handle form submission
-  const handleCourseEnrollment: SubmitHandler<RegistrationFormInputs> = (
-    regInfo
-  ) => {
+  const handleCourseEnrollment: SubmitHandler<RegistrationFormInputs> = () => {
     
     toast({
       title: "Enrollment Successful"

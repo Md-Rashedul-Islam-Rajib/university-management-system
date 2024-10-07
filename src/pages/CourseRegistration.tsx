@@ -13,9 +13,9 @@ const FacultyManagement = () => {
 
   // Filter faculties based on search term
   const filteredFaculties = faculties.filter((faculty) => {
-    const name = faculty.name?.toLowerCase() || "";
+    const name = faculty.facultyName?.toLowerCase() || "";
     const designation = faculty.designation?.toLowerCase() || "";
-    const subject = faculty.subject?.toLowerCase() || "";
+    const subject = faculty.subjects?.join() || "";
 
     return (
       name.includes(searchTerm.toLowerCase()) ||
