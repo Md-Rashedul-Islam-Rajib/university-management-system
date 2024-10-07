@@ -218,7 +218,7 @@ const Navbar: React.FC = () => {
                       <PopoverTrigger>
                         <span className="mr-1">Notifications</span>
                       </PopoverTrigger>
-                      {notifications && <PopoverContent>
+                      <PopoverContent>
                         {notifications?.map((notification) => (
                           <Card key={notification.eventId}>
                             <CardContent>
@@ -231,7 +231,7 @@ const Navbar: React.FC = () => {
                             </CardContent>
                           </Card>
                         ))}
-                      </PopoverContent>}
+                      </PopoverContent>
                     </Popover>
                     {count > 0 && (
                       <Badge
@@ -264,8 +264,8 @@ const Navbar: React.FC = () => {
           >
             <Card>
               <CardContent>
-                <ToastTitle>New Notification</ToastTitle>
-                <ToastDescription>{currentNotification}</ToastDescription>
+                <ToastTitle className="font-medium text-blue-700">New Notification</ToastTitle>
+                <ToastDescription className="font-bold">{currentNotification}</ToastDescription>
               </CardContent>
             </Card>
           </Toast>
